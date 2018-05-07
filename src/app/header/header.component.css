@@ -1,0 +1,10 @@
+.header {
+  background-image: linear-gradient(to bottom,#6e85b2 0,#687daa 100%);
+  padding: 20px;
+  margin: 0;
+}
+
+.wrapper {
+  max-width: 1200px;
+  margin: auto;
+}

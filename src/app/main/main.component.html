@@ -1,0 +1,12 @@
+<main class="main">
+  <div class="wrapper">
+    <ul *ngIf="rootObject">
+      <li *ngFor="let item of acList">
+        <!-- <i *ngIf="item.Trak === 1 " class="fas fa-plane"></i> -->
+        {{item.Id}} -
+        {{item.Engines}}
+        <!-- <i *ngIf="item.Trak !== 1 " class="fas fa-plane"></i> -->
+      </li>
+    </ul>
+  </div>
+</main>
