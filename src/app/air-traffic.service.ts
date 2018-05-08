@@ -23,5 +23,10 @@ export class AirTrafficService {
                .pipe(map(res => res as RootObject)).toPromise();
   }
 
+  async getFlightInfo(id: number) {
+    const r = await this.getAirTraffic();
+    const res = r.acList.find(p => p.Id === id);
+    return res;
+  }
 
 }

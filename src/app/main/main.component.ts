@@ -2,6 +2,7 @@ import { AirTrafficService } from './../air-traffic.service';
 import { RootObject, AcList } from './../rootInterface';
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { templateJitUrl } from '@angular/compiler';
+import { timeout } from 'rxjs/operators';
 
 @Component({
   selector: 'app-main',
@@ -15,16 +16,20 @@ export class MainComponent implements OnInit {
 
   constructor(private _getList: AirTrafficService) { }
 
-  async ngOnInit() {
-    const temp = await this._getList.getAirTraffic();
-    this.rootObject = temp;
-    this.acList = temp.acList.slice(0, 50).sort();
-
-    console.log(this.rootObject);
+  ngOnInit() {
+    this.refreshList();
   }
 
-  moreInfo() {
-    console.log(123);
+  async refreshList() {
+    const temp = await this._getList.getAirTraffic();
+    this.rootObject = temp;
+    // sort
+    this.acList = temp.acList.slice(0, 50)
+      .sort((a, b) =>  (a.Alt > b.Alt) ? 1 : ((b.Alt > a.Alt) ? -1 : 0));
+    // refresh
+    setTimeout(() => this.refreshList(), 1000 * 60 * 1);
+
+    console.log(this.rootObject);
   }
 
 }

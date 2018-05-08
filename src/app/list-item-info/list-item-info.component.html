@@ -1,18 +1,17 @@
-<div class="wrapper">
-  <p>
-    list-item-info works!
-  </p>
-  <h2>
-    <!-- {{ item.Mdl }} -->
-  </h2>
-  <h3>
-    <!-- {{item.Man}} -->
-  </h3>
+<div class="wrapper" *ngIf="item">
+  <div class="box">
+    <h2>
+      {{item.Op}}
+    </h2>
+    <h3>
+      {{item.Man}}
+    </h3>
+    <h3>
+      {{ item.Mdl }}
+    </h3>
+  </div>
 </div>
 
 <div class="back" (click)="backClicked()">
   <i class="fas fa-plane"></i><span>&nbsp;&nbsp;back</span>
 </div>
-
-<!-- Man:"Boeing"
-Mdl:"Boeing 737NG 8GU/W" -->

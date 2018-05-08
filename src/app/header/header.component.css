@@ -2,19 +2,18 @@
   background-image: linear-gradient(to bottom,#6e85b2 0,#687daa 100%);
   padding: 20px;
   margin: 0;
-  position: relative;
+  position: fixed;
+  width: 100%;
+  top: 0;
   z-index: 51;
-}
-
-.wrapper {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
 }
 
 .logo {
   outline: none;
   cursor: pointer;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
 }
 
 h2 {

@@ -1,9 +1,14 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 import { RootObject, AcList } from './../rootInterface';
 import { AirTrafficService } from '../air-traffic.service';
 
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+
 import {Location} from '@angular/common';
+import { Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-list-item-info',
@@ -12,13 +17,21 @@ import {Location} from '@angular/common';
 })
 export class ListItemInfoComponent implements OnInit {
 
-  @Input() item: AcList;
+  item: AcList;
 
   constructor(
     private _airTrafficService: AirTrafficService,
+    private router: Router,
+    private route: ActivatedRoute,
     private _location: Location) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
+    this.getInfo();
+  }
+
+  async getInfo() {
+    const id = this.route.snapshot.paramMap.get('id');
+    this.item = await this._airTrafficService.getFlightInfo(parseInt(id, 10));
   }
 
   // back button

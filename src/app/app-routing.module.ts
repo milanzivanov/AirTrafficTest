@@ -13,7 +13,7 @@ const routes: Routes = [
     path: 'home', component: MainComponent
   },
   {
-    path: 'item', component: ListItemInfoComponent
+    path: 'flight-info/:id', component: ListItemInfoComponent
   },
   {
     path: '**', component: PNfComponent

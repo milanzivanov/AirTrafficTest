@@ -1,33 +1,17 @@
-<!-- loader -->
-<section *ngIf="!acList"
-         class="container-loader">
-  <div class="loading">
-  </div>
-</section>
-
 <main class="main">
+
   <div class="wrapper">
-    <ul>
+
+    <ul *ngIf="acList">
       <li class="box"
           *ngFor="let item of acList"
-          routerLink="/item"
-          (click)="moreInfo()">
-            <!-- <i *ngIf="item.Trak === 1 " class="fas fa-plane"></i> -->
+          routerLink="/flight-info/{{item.Id}}">
             <h2><i class="fas fa-plane"></i></h2>
-            <h2>Altitude: {{item.Alt}}</h2>
-            <h3>{{item.Icao}}</h3>
-            <h4>{{item.Man}}</h4>
-            <!-- <i *ngIf="item.Trak !== 1 " class="fas fa-plane rotate"></i> -->
+            <h2 class="border">Altitude: {{item.Alt}}</h2>
+            <h3>Code: {{item.Icao}}</h3>
       </li>
     </ul>
+
   </div>
 
-  <!-- <app-list-item-info [item]="acList"></app-list-item-info> -->
-
 </main>
-
-<!-- Man:"Boeing"
-Mdl:"Boeing 737NG 8GU/W"
-Mil:false
-Op:"UT air"
-OpIcao:"UTA" -->
