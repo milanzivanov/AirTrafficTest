@@ -1,0 +1,6 @@
+section.page {
+  height: calc(100vh - 124px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

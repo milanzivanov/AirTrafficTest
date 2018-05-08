@@ -11,19 +11,36 @@
   flex-wrap: wrap;
 }
 
-li.box {
+.box {
   flex: 1 1 25%;
   padding: 25px;
   background-color: #eee;
   margin: 5px;
+  transition: 0.3s ease-in-out;
+  cursor: pointer;
 }
 
+@media only screen and (max-width: 1024px) {
+  .box {
+    flex: 1 1 50%;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .box {
+    flex: 1 1 100%;
+  }
+}
+
+.box:hover {
+  padding: 50px;
+  /* flex: 1 1 50%; */
+}
 
 /* loading animation */
 .container-loader {
   width: 100%;
-  height: calc(100vh);
-  z-index: 1000;
+  height: 100vh;
   background-color: #fff;
   position: absolute;
   top: 0;
@@ -31,8 +48,8 @@ li.box {
   bottom: 0;
   right: 0;
   z-index: 50;
-
 }
+
 .loading {
   border: 6px solid #ccc;
   width: 75px;

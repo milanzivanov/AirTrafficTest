@@ -1,0 +1,13 @@
+.back {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  padding: 20px;
+  cursor: pointer;
+  background-color: #6e85b2;
+  color: #fff;
+}
+
+.fa-plane {
+  transform: rotate(180deg);
+}

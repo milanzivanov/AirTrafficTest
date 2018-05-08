@@ -6,3 +6,19 @@
   z-index: 51;
 }
 
+.wrapper {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.logo {
+  outline: none;
+  cursor: pointer;
+}
+
+h2 {
+  padding: 0 0 0 10px;
+  color: #eee;
+}
+

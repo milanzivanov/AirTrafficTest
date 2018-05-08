@@ -1,5 +1,6 @@
+import { TestBed } from '@angular/core/testing';
 import { Injectable } from '@angular/core';
-import { RootObject } from './rootInterface';
+import { RootObject, AcList } from './rootInterface';
 import { HttpClient } from '@angular/common/http';
 
 import { Observable } from 'rxjs';
@@ -14,6 +15,7 @@ export class AirTrafficService {
   constructor(private _http: HttpClient) { }
 
   public url = '../assets/airCraftList.json';
+  // you can use this but than need to install cors browser extension
   // public url = 'http://public-api.adsbexchange.com/VirtualRadar/AircraftList.json';
 
   getAirTraffic(): Promise<RootObject> {
