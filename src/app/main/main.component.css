@@ -3,7 +3,55 @@
   float: left;
 }
 
-.wrapper {
-  max-width: 1200px;
-  margin: auto;
+.main ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+li.box {
+  flex: 1 1 25%;
+  padding: 25px;
+  background-color: #eee;
+  margin: 5px;
+}
+
+
+/* loading animation */
+.container-loader {
+  width: 100%;
+  height: calc(100vh);
+  z-index: 1000;
+  background-color: #fff;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 50;
+
+}
+.loading {
+  border: 6px solid #ccc;
+  width: 75px;
+  height: 75px;
+  top: 50%;
+  left: 50%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  border-top-color: #1ecd97;
+  border-left-color: #1ecd97;
+  animation: spin 1s infinite ease-in-out;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg)
+  }
+  100% {
+    transform: rotate(-720deg)
+  }
 }

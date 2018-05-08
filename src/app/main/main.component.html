@@ -1,12 +1,26 @@
-<main class="main">
+<!-- loader -->
+<section class="container-loader" *ngIf="!acList">
+  <div class="loading">
+  </div>
+</section>
+
+<main class="main" *ngIf="acList">
   <div class="wrapper">
-    <ul *ngIf="rootObject">
-      <li *ngFor="let item of acList">
+    <ul>
+      <li class="box" *ngFor="let item of acList"  (click)="moreInfo()">
         <!-- <i *ngIf="item.Trak === 1 " class="fas fa-plane"></i> -->
-        {{item.Id}} -
-        {{item.Engines}}
-        <!-- <i *ngIf="item.Trak !== 1 " class="fas fa-plane"></i> -->
+        <h2><i class="fas fa-plane"></i></h2>
+        <h2>{{item.Alt}}</h2>
+        <h3>{{item.Icao}}</h3>
+        <h4>{{item.Man}}</h4>
+        <!-- <i *ngIf="item.Trak !== 1 " class="fas fa-plane rotate"></i> -->
       </li>
     </ul>
   </div>
 </main>
+
+<!-- Man:"Boeing"
+Mdl:"Boeing 737NG 8GU/W"
+Mil:false
+Op:"UT air"
+OpIcao:"UTA" -->

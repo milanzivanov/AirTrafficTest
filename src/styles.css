@@ -1,9 +1,24 @@
 /* You can add global styles to this file, and also import other style files */
 
+html {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  -webkit-box-sizing: inherit;
+  -moz-box-sizing: inherit;
+  box-sizing: inherit;
+  }
+
 *, body, html {
   padding: 0;
   margin: 0;
-  box-sizing: border-box;
-  font-family: sans-serif;
+  font-family: 'Montserrat', sans-serif;
   list-style: none;
+}
+
+.wrapper {
+  max-width: 1200px;
+  margin: auto;
 }

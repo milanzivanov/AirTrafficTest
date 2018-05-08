@@ -1,6 +1,7 @@
 import { AirTrafficService } from './../air-traffic.service';
 import { RootObject, AcList, Feed } from './../rootInterface';
 import { Component, OnInit } from '@angular/core';
+import { templateJitUrl } from '@angular/compiler';
 
 @Component({
   selector: 'app-main',
@@ -22,5 +23,8 @@ export class MainComponent implements OnInit {
     console.log(this.rootObject);
 
   }
+      moreInfo() {
+        console.log(123);
+      }
 
 }
