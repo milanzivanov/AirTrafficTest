@@ -34,7 +34,6 @@ export class ListItemInfoComponent implements OnInit {
     this.item = await this._airTrafficService.getFlightInfo(parseInt(id, 10));
   }
 
-  // back button
   backClicked() {
     this._location.back();
   }
