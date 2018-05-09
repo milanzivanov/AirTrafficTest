@@ -28,8 +28,26 @@
   cursor: pointer;
   background-color: #6e85b2;
   color: #fff;
+  transition: ease-out;
+}
+
+.back:hover .fa-plane {
+  animation: move 1s infinite ease-in-out;
 }
 
 .fa-plane {
   transform: rotate(180deg);
 }
+
+@keyframes move {
+  0% {
+    transform: translateX(0) rotate(180deg);
+  }
+  50% {
+    transform: translateX(-30px) rotate(180deg);
+  }
+  100% {
+    transform: translateX(-50px) rotate(180deg);
+  }
+}
+
