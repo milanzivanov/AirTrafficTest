@@ -15,3 +15,13 @@
   </div>
 
 </main>
+
+<!-- geolocation -->
+<footer class="geo">
+  <div *ngIf="error">Permission Denied</div>
+
+  <div *ngIf="!error">
+    <h2>I know where you live :)</h2>
+    <div>{{output}}</div>
+  </div>
+</footer>

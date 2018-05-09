@@ -35,6 +35,23 @@
   margin-bottom: 10px;
 }
 
+.box:hover {
+  padding: 50px;
+}
+
+/* geo */
+footer.geo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 50px 0;
+  color: #6b81ae;
+}
+
+.geo h2 {
+  padding: 0 0 5px 0;
+}
+
 @media only screen and (max-width: 1024px) {
   .box {
     flex: 1 1 50%;
@@ -46,8 +63,3 @@
     flex: 1 1 100%;
   }
 }
-
-.box:hover {
-  padding: 50px;
-}
-

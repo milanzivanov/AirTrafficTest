@@ -11,6 +11,10 @@ import { timeout } from 'rxjs/operators';
 })
 export class MainComponent implements OnInit {
 
+  // geolocation
+  output = '';
+  error = false;
+
   public rootObject: RootObject = null;
   public acList: AcList[] = [];
 
@@ -18,6 +22,8 @@ export class MainComponent implements OnInit {
 
   ngOnInit() {
     this.refreshList();
+
+    this.getLocation();
   }
 
   async refreshList() {
@@ -30,6 +36,25 @@ export class MainComponent implements OnInit {
     setTimeout(() => this.refreshList(), 1000 * 60 * 1);
 
     console.log(this.rootObject);
+  }
+
+
+
+  getLocation() {
+    if (!navigator.geolocation) {
+      return alert('Geolocation is not supported by this browser.');
+    }
+    navigator.geolocation.getCurrentPosition(this.showPosition.bind(this), this.handleError.bind(this));
+  }
+
+  showPosition(position) {
+    this.output = `Latitude: ${position.coords.latitude}
+                  Longitude: ${position.coords.longitude}`;
+  }
+
+  handleError(error) {
+    this.error = true;
+    console.log('Permission was denied');
   }
 
 }

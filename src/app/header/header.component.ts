@@ -7,27 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  output = '';
-  error = false;
-
-  getLocation() {
-    if (!navigator.geolocation) {
-      return alert('Geolocation is not supported by this browser.');
-    }
-    navigator.geolocation.getCurrentPosition(this.showPosition.bind(this), this.handleError.bind(this));
-  }
-
-  showPosition(position) {
-    this.output = `Latitude: ${position.coords.latitude} Longitude: ${position.coords.longitude}`;
-  }
-
-  handleError(error) {
-    this.error = true;
-    console.log('Permission was denied');
-  }
-
   ngOnInit() {
-    this.getLocation();
+    // this.getLocation();
   }
 
 }
