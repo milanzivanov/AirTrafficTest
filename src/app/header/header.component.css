@@ -8,12 +8,22 @@
   z-index: 51;
 }
 
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .logo {
   outline: none;
   cursor: pointer;
   display: flex;
   justify-content: flex-start;
   align-items: center;
+}
+
+.geo h2 {
+  padding: 0;
 }
 
 h2 {

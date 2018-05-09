@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { RootObject, AcList } from './rootInterface';
+import { RootObject } from './rootInterface';
 
 @Component({
   selector: 'app-root',
@@ -7,7 +7,5 @@ import { RootObject, AcList } from './rootInterface';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-
-  item: AcList;
 
 }
