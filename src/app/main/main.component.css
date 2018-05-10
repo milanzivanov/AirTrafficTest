@@ -26,7 +26,6 @@
 
 .box h2 {
   color: #6a80ad;
-  /* border-bottom: 1px solid #eee; */
 }
 
 .border {
@@ -37,6 +36,7 @@
 
 .box:hover {
   padding: 50px;
+  background-color: #C0C0C0;
 }
 
 /* geo */

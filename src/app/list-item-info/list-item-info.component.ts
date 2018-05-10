@@ -39,4 +39,6 @@ export class ListItemInfoComponent implements OnInit {
     this._location.back();
   }
 
+  // output to root
+
 }
