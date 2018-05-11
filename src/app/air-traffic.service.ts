@@ -25,6 +25,7 @@ export class AirTrafficService {
 
   async getFlightInfo(id: number) {
     const r = await this.getAirTraffic();
+    // qqqqq???
     const res = r.acList.find(p => p.Id === id);
     return res;
   }

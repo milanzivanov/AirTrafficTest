@@ -7,8 +7,7 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 import {Location} from '@angular/common';
-import { Router } from '@angular/router';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-list-item-info',
@@ -38,7 +37,5 @@ export class ListItemInfoComponent implements OnInit {
   backClicked() {
     this._location.back();
   }
-
-  // output to root
 
 }
