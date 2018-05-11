@@ -6,8 +6,6 @@ import { templateJitUrl } from '@angular/compiler';
 import { } from '@types/googlemaps';
 declare var google: any;
 
-
-
 @Component({
   selector: 'app-main',
   templateUrl: './main.component.html',
