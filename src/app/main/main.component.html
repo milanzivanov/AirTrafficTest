@@ -1,4 +1,22 @@
 <main class="main">
+  <div class="wrapper">
+    <div class="col-md-3 col-sm-12 col-xs-12">
+      <button (click)="setMapType('terrain')">Terrain</button>
+      <button (click)="setMapType('satellite')">Satellite</button>
+    </div>
+
+    <form class="form-inline" #form="ngForm">
+      <div class="form-group">
+        <input type="text" class="form-control" name="latitude" [(ngModel)]="latitude" placeholder="Enter latitude" required>
+      </div>
+      <div class="form-group">
+        <input type="text" class="form-control" name="longitude" [(ngModel)]="longitude" placeholder="Enter longitude" required>
+      </div>
+      <button type="button" (click)="setCenter()" class="btn btn-primary" [disabled]="form.invalid"> Go</button>
+    </form>
+  </div>
+
+  <div #gmap style="width:100%;height:400px"></div>
 
   <div class="wrapper">
 
