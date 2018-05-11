@@ -39,17 +39,22 @@
   background-color: #C0C0C0;
 }
 
-/* geo */
-footer.geo {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 50px 0;
-  color: #6b81ae;
+/* gm */
+.geo {
+  padding: 10px 0;
 }
 
-.geo h2 {
-  padding: 0 0 5px 0;
+button.btn {
+  padding: 5px;
+  outline: none;
+  border: none;
+  margin-left: 5px;
+}
+
+.geo_info span {
+  display: block;
+  padding: 5px;
+  color: #6c82af;
 }
 
 @media only screen and (max-width: 1024px) {

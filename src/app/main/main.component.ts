@@ -15,25 +15,28 @@ declare var google: any;
 })
 export class MainComponent implements OnInit {
 
+  public rootObject: RootObject = null;
+  public acList: AcList[] = [];
+
+  // gm https://github.com/ultrasonicsoft/gmap-geolocation-demo
   @ViewChild('gmap') gmapElement: any;
   map: google.maps.Map;
 
-  latitude: number;
-  longitude: number;
+  isTracking = false;
 
-  iconBase = 'https://maps.google.com/mapfiles/kml/shapes/';
+  currentLat: number;
+  currentLong: number;
 
-
-  public rootObject: RootObject = null;
-  public acList: AcList[] = [];
+  marker: google.maps.Marker;
 
   constructor(private _getList: AirTrafficService) { }
 
   ngOnInit() {
     this.refreshList();
 
+    // gm
     const mapProp = {
-      center: new google.maps.LatLng(18.5793, 73.8143),
+      center: new google.maps.LatLng(46.0500000, 20.1000000),
       zoom: 15,
       mapTypeId: google.maps.MapTypeId.ROADMAP
     };
@@ -52,49 +55,62 @@ export class MainComponent implements OnInit {
     console.log(this.rootObject);
   }
 
-  // google maps by https://github.com/ultrasonicsoft/gmap-ng5/blob/master/src/app/app.component.ts
-  setMapType(mapTypeId: string) {
-    this.map.setMapTypeId(mapTypeId);
+  // gm
+  findMe() {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition((position) => {
+        this.showPosition(position);
+      });
+    } else {
+      alert('Geolocation is not supported by this browser.');
+    }
   }
 
-  setCenter() {
-    this.map.setCenter(new google.maps.LatLng(this.latitude, this.longitude));
+  showPosition(position) {
+    this.currentLat = position.coords.latitude;
+    this.currentLong = position.coords.longitude;
 
-    const location = new google.maps.LatLng(this.latitude, this.longitude);
+    const location = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+    this.map.panTo(location);
 
-    const marker = new google.maps.Marker({
-      position: location,
-      map: this.map,
-      title: 'Got you!'
-    });
-
-    marker.addListener('click', this.simpleMarkerHandler);
-
-    marker.addListener('click', () => {
-      this.markerHandler(marker);
-    });
+    if (!this.marker) {
+      this.marker = new google.maps.Marker({
+        position: location,
+        map: this.map,
+        title: 'Got you!'
+      });
+    } else {
+      this.marker.setPosition(location);
+    }
   }
 
-  simpleMarkerHandler() {
-    alert('Simple Component\'s function...');
+  trackMe() {
+    if (navigator.geolocation) {
+      this.isTracking = true;
+      navigator.geolocation.watchPosition((position) => {
+        this.showTrackingPosition(position);
+      });
+    } else {
+      alert('Geolocation is not supported by this browser.');
+    }
   }
 
-  markerHandler(marker: google.maps.Marker) {
-    alert('Marker\'s Title: ' + marker.getTitle());
-  }
+  showTrackingPosition(position) {
+    console.log(`tracking postion:  ${position.coords.latitude} - ${position.coords.longitude}`);
+    this.currentLat = position.coords.latitude;
+    this.currentLong = position.coords.longitude;
 
-  showCustomMarker() {
+    const location = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+    this.map.panTo(location);
 
-
-    this.map.setCenter(new google.maps.LatLng(this.latitude, this.longitude));
-
-    const location = new google.maps.LatLng(this.latitude, this.longitude);
-
-    const marker = new google.maps.Marker({
-      position: location,
-      map: this.map,
-      title: 'Got you!'
-    });
-
+    if (!this.marker) {
+      this.marker = new google.maps.Marker({
+        position: location,
+        map: this.map,
+        title: 'Got you!'
+      });
+    } else {
+      this.marker.setPosition(location);
+    }
   }
 }
