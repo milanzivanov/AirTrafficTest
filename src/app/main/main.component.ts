@@ -25,7 +25,7 @@ export class MainComponent implements OnInit {
     this.rootObject = temp;
 
     this.acList = temp.acList.slice(0, 50)
-      .sort((a, b) =>  (a.Alt > b.Alt) ? 1 : ((b.Alt > a.Alt) ? -1 : 0));
+      .sort((a, b) =>  (a.Alt > b.Alt) ? -1 : ((b.Alt > a.Alt) ? 1 : 0));
 
     setTimeout(() => this.refreshList(), 1000 * 60 * 1);
 
