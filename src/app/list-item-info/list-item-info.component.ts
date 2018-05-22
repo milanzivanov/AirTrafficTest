@@ -31,7 +31,11 @@ export class ListItemInfoComponent implements OnInit {
 
   async getInfo() {
     const id = this.route.snapshot.paramMap.get('id');
+    // console.log(id);
+
     this.item = await this._airTrafficService.getFlightInfo(parseInt(id, 10));
+    // console.log(this.item);
+
   }
 
   backClicked() {

@@ -11,6 +11,8 @@ import { timeout } from 'rxjs/operators';
 })
 export class MainComponent implements OnInit {
 
+  // qq??? ts specifican sad je undefined
+  // public rootObject: RootObject;
   public rootObject: RootObject = null;
   public acList: AcList[] = [];
 
@@ -29,7 +31,7 @@ export class MainComponent implements OnInit {
 
     setTimeout(() => this.refreshList(), 1000 * 60 * 1);
 
-    console.log(this.rootObject);
+    console.log(temp);
   }
 
 }
